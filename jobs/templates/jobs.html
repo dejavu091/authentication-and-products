@@ -15,16 +15,13 @@
 <div class="product-card">
     <img src="{{ job.image.url }}" alt="{{ job.name }}">
     <h3>Name: {{ job.name }}</h3>
-    <p>Description: 
-        {% if job.description|length > 10 %}
-            <span class="short">{{ job.description|slice:":10" }}...</span>
-            <span class="full">{{ job.description }}</span>
-            <a href="#" class="see-toggle">see more</a>
-        {% else %}
-            {{ job.description }}
-        {% endif %}
+    <p>
+       Description: {{ job.description }} 
     </p>
+      
     <p>Salary: {{ job.salary }}</p>
+    <p>Qualification: {{job.qualification}}
+    </p>
 
     <p>Posted by: {{ job.user.username }}</p>
     {% if job.user == user %}
@@ -40,3 +37,15 @@
 
 
 {% endblock main%}
+
+<script>
+document.addEventListener('click', function(e){
+    if(!e.target.classList.contains('see-toggle')) return;
+    e.preventDefault();
+    var link = e.target;
+    var card = link.closest('.product-card');
+    if(!card) return;
+    var isExpanded = card.classList.toggle('expanded');
+    link.textContent = isExpanded ? 'see less' : 'see more';
+});
+</script>

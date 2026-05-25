@@ -221,9 +221,6 @@ footer{
 .simple a{ text-decoration:none; text-transform:capitalize; color:rgba(255,255,255,0.9) }
 .simple1 img{ padding-left:10px; padding-top:20px }
 
-/* Layout helpers */
-.container{ max-width:1200px; margin:0 auto; padding: 0 20px }
-.muted{ color:var(--muted) }
 .intro{
 
     width: 80dvw;
