@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home page {% endblock title %}
+ {% block style %} {% endblock style%}
+
+{% block main %}
+
+ <div class="sub-hero">
+        <div class="sub1">
+            <img src="{% static 'assets/briefcase-duotone 1.png' %}" alt="breifcase">
+            <p>DEJ-JOBS</p>
+        </div>
+        <div class="sub2">
+            <img src="{% static 'assets/fi_search.png' %}"  alt="searchbar">
+            <input type="text" placeholder="Job title, keyword, company">
+        </div>
+        <div class="search-btn">
+            <button>search</button>
+        </div>
+    </div>
+    <main>
+        <div class="hero3">
+            <div class="find">
+                <h2>
+                    Find a job that suits <br> your interest & skills.
+                </h2>
+                <p>
+                    we help you find jobs that you have passion for
+                </p>
+            </div>
+            <div class="ill">
+                <img src="{% static 'assets/Illustration.png' %}" alt="illustration">
+            </div>
+            <div class="find-bar">
+                <div class="find1">
+                    <img src="{% static  'assets/fi_map-pin.png' %}" alt="locator">
+                  <input type="text" name="" id="" placeholder="your location">
+                </div>
+             <div class="find-job">
+                <button> find job</button>
+             </div>
+               
+
+            </div>
+            <div class="live">
+                <div class="live1">
+                    <img src="{% static 'assets/briefcase-duotone 1.png' %}" alt="case">
+                    <p>1500 jobs</p>
+
+                </div>
+                <div class="live2">
+                    <img src="{% static 'assets/Icon.png' %}" alt="company">
+                    <p>2600 companies</p>
+                </div>
+                <div class="live3">
+                    <img src="{% static 'assets/Icon (1).png' %}" alt="candidates">
+                    <p>17000 candidates</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero4">
+
+            <h2 id="dej">
+                how DEJ-JOBS works
+            </h2>
+            <img src="{% static 'assets/Process.png' %}" alt="process">
+        </div>
+    </main>
+
+
+    
+{% endblock main %}
+
+

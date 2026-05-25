@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Apply for job {% endblock title %}
+{% block main%}
+<form action="" method="post">
+{% csrf_token %}
+<label for="qualification">Qualification</label>
+<input type="text" name="qualification" id="qualification"><br>
+<button>buy now</button>
+
+
+
+
+
+
+</form>
+
+
+
+{% endblock main %}

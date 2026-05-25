@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Edit a job {% endblock title %}
+ {% block main %}
+ <form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="name">Name</label><br>
+  <input type="text" name="name" id="name" value="{{product.name}}"><br>
+  <label for="description">Description</label><br>
+  <textarea name="description" id="description">{{product.description}}</textarea><br>
+  <label for="salary">Salary</label><br>
+  <input type="number" name="salary" id="salary" value="{{product.salary}}"><br>
+    <label for="qualification">Qualification</label><br>
+  <textarea name="qualification" id="qualification">{{product.qualification}}</textarea><br>
+  <input type="file" name="image" id="image" ><br>
+  <button>Update job</button>
+ </form>
+ {%endblock main %}

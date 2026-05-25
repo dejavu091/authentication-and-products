@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} sign up {% endblock title %}
+  {% block style %} {% endblock style%}
+{% for msg in messages%}
+<p>{{msg}}</p>
+{% endfor %}
+
+{% block main %}
+
+<div class="contact">
+<form action="" method="post">
+    {% csrf_token %}
+<label for="username">username</label><br>
+<input type="text" name="username" id="username"><br>
+<label for="email">email</label><br>
+<input type="email" name="email" id="email"><br>
+<label for="first name">first name</label><br>
+<input type="text" name="firstname" id="firstname"><br>
+<label for="lastname">last name</label><br>
+<input type="text" name="lastname" id="lastname"><br>
+<label for="password">password</label><br>
+<input type="password" name="password" id="password"><br>
+<button>Register</button>
+
+
+</form>
+</div>
+
+<p> Already have an account? click here <a href="{%url 'login'%}"> login here</a></p>
+
+{% endblock main %}
+

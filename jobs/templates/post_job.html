@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} post a job {% endblock title %}
+ {% block main %}
+ <div class="contact">
+ <form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="name">Name</label><br>
+  <input type="text" name="name" id="name" required><br>
+  <label for="description">Description</label><br>
+  <textarea name="description" id="description"></textarea><br>
+  <label for="salary">Salary</label><br>
+  <input type="number" name="salary" id="salary"><br>
+    <label for="qualification">Qualification</label><br>
+  <textarea name="qualification" id="qualification"></textarea><br>
+  <input type="file" name="image" id="image"><br>
+  <button>upload</button>
+ </form>
+ </div>
+
+ {%endblock main %}

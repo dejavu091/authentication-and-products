@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} log in {% endblock title %}
+
+ {% block style %} <link rel="stylesheet" href="{% static 'user/css/style.css'%}">
+    {% endblock style%}
+<main>
+{% block main %} 
+<img src="{% static 'assets/icon 2.png' %}" alt="">
+<div class="contact">
+<form action="" method="post">
+    {% csrf_token %}
+<label for="username">Username</label><br>
+<input type="text" name="username" id="username"><br>
+<label for="password">password</label><br>
+<input type="password" name="password" id="password"><br>
+<button>log in</button>
+</div>
+
+
+<p> Dont have an account? click here <a href="{%url 'signup'%}"> Sign up here</a></p>
+
+</form>
+
+{% endblock main %}
+
+</main>
