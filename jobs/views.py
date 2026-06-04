@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,resolve_url
-from jobs.models import Job
+from jobs.models import Job,Apply
 from django.contrib.auth.decorators import login_required
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -101,15 +101,36 @@ def list_jobs(request):
 
 
 @login_required
-def apply_job(request,job_id):
-     job=Job.objects.filter(id=job_id).first()
-     if not job:
+class Apply (View):
+     def get(self,request,job_id):
+      job=Job.objects.filter(id=job_id).first()
+      if not job:
           return redirect(resolve_url('jobs'))
-     if job.user == request.user:
+      if job.user == request.user:
           messages.error(request,'why are you applying for your own job!')
           return redirect(resolve_url('jobs'))
-     messages.success(request,'job application submitted successfully')
-     return redirect(resolve_url('jobs'))
+     def post(self,request):
+          firstname =request.POST.get('firstname')
+          lastname =request.POST.get('lastname')
+          dob =request.POST.get('dob')
+          school= request.POST.get('school')
+          qualification =request.POST.get('qualification')
+          years= request.POST.get('years')
+          certificate=request.POST.get('certificate')
+          if not firstname or not lastname or not dob or not school or not qualification or not years or not certificate:
+               messages.error (request,'all field are required')
+               return render(request,'apply_job.html')
+          if len(firstname or lastname or school or certificate or qualification)<2:
+               messages.error(request,'character too short')
+               return render(request,'apply_job,html')
+          if len(firstname or lastname or school or certificate or qualification)>250:
+               messages.error(request,'character too long')
+               return render(request,'apply_job.html')
+          Apply.objects.create(firstname=firstname, lastname=lastname, dob=dob, school=school,qualification=qualification, years=years, certificate=certificate)
+          messages.success(request,'job application sent successfully')
+          return redirect(resolve_url('jobs'))
+
+    
 
 
 
