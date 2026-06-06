@@ -26,3 +26,8 @@ urlpatterns = [
     path('jobs/',include('jobs.urls'),)
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+
+
+handler404='jobs.views.error_404'
+handler500='jobs.views.error_500'

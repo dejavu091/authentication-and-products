@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block title %} page not found {% endblock title%}
+{% block main %}
+<div style="display: grid;place-items: center;background-color: green;">
+
+    <h1> 404 ERROR=====page not found</h1>
+    <button><a href="{%url 'home' %}">Go home</a></button>
+
+
+</div>
+
+{% endblock main %}

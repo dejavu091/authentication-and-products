@@ -1,11 +1,11 @@
    {% load static %}
    <link rel="stylesheet" href="{% static 'user/css/style.css' %}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <header>
     <div class="hero">
 
         <ul>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
+           
             {% if user.is_authenticated %}
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{%url 'logout'%}">log out</a></li>
@@ -14,8 +14,11 @@
                  {% else %}
                  <li> <a href="{%url 'signup'%}"> Sign up</a></li>
                  <li><a href="{%url 'login'%}">Log in</a></li>
+                
 
                  {% endif %}
+                 <li><a href="{% url 'about' %}">About Us</a></li>
+                 <li><a href="{% url 'contact' %}">Contact</a></li>
 
         </ul>
     </div>
@@ -24,4 +27,29 @@
             <li id="post"><a href="{%url 'post-jobs' %}">post jobs</a></li>
         </ul>
        </div>
+       <div class="drop">
+<div class="drop-down-arrow">
+        <i class="fas fa-caret-down"></i></div>
+         <div class="drop-menu">
+              <ul>
+           
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{%url 'logout'%}">log out</a></li>
+             <li><a href="{%url 'jobs'%}">jobs</a></li>
+             <li><a href="{%url 'all_jobs' %}">All jobs</a></li>
+                 {% else %}
+                 <li> <a href="{%url 'signup'%}"> Sign up</a></li>
+                 <li><a href="{%url 'login'%}">Log in</a></li>
+                
+
+                 {% endif %}
+                 <li><a href="{% url 'about' %}">About Us</a></li>
+                 <li><a href="{% url 'contact' %}">Contact</a></li>
+
+        </ul> 
+        </div>
+
+       </div>
+    
     </header>

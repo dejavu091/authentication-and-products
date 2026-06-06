@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock title %}</title>
-    <link rel="stylesheet" href="{%static 'user/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 </head>
 <body>
-    {% block style %} {% endblock style%}
+    {% block style %} {% endblock style %}
 
  {% include 'header.html' %}
     <main>
         <div class="msg">
-            {% for msg in messages%} 
-                <p>
+            {% for msg in messages %} 
+                <p id="mess">
                     {{ msg }}
                 </p>
             
@@ -27,5 +27,6 @@
          {% endblock main %}
     </main>
  {% include 'footer.html' %}
+<script src="{% static 'js/java.js' %}"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,resolve_url
-from jobs.models import Job,Apply
+from jobs.models import Job, Apply as ApplyModel
 from django.contrib.auth.decorators import login_required
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -100,36 +100,63 @@ def list_jobs(request):
      return JsonResponse(data,safe=False)
 
 
-@login_required
-class Apply (View):
-     def get(self,request,job_id):
-      job=Job.objects.filter(id=job_id).first()
-      if not job:
-          return redirect(resolve_url('jobs'))
-      if job.user == request.user:
-          messages.error(request,'why are you applying for your own job!')
-          return redirect(resolve_url('jobs'))
-     def post(self,request):
-          firstname =request.POST.get('firstname')
-          lastname =request.POST.get('lastname')
-          dob =request.POST.get('dob')
-          school= request.POST.get('school')
-          qualification =request.POST.get('qualification')
-          years= request.POST.get('years')
-          certificate=request.POST.get('certificate')
-          if not firstname or not lastname or not dob or not school or not qualification or not years or not certificate:
-               messages.error (request,'all field are required')
-               return render(request,'apply_job.html')
-          if len(firstname or lastname or school or certificate or qualification)<2:
-               messages.error(request,'character too short')
-               return render(request,'apply_job,html')
-          if len(firstname or lastname or school or certificate or qualification)>250:
-               messages.error(request,'character too long')
-               return render(request,'apply_job.html')
-          Apply.objects.create(firstname=firstname, lastname=lastname, dob=dob, school=school,qualification=qualification, years=years, certificate=certificate)
-          messages.success(request,'job application sent successfully')
-          return redirect(resolve_url('jobs'))
+class Apply(LoginRequiredMixin, View):
+    def get(self, request, job_id):
+        job = Job.objects.filter(id=job_id).first()
+        if not job:
+            return redirect(resolve_url('jobs'))
+        if job.user == request.user:
+            messages.error(request, 'why are you applying for your own job!')
+            return redirect(resolve_url('jobs'))
+        return render(request, 'apply_job.html', {'job': job})
 
+    def post(self, request, job_id):
+        job = Job.objects.filter(id=job_id).first()
+        if not job:
+            return redirect(resolve_url('jobs'))
+        if job.user == request.user:
+            messages.error(request, 'why are you applying for your own job!')
+            return redirect(resolve_url('jobs'))
+
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        dob = request.POST.get('dob')
+        school = request.POST.get('school')
+        qualification = request.POST.get('qualification')
+        years = request.POST.get('years')
+        image = request.FILES.get('image')
+
+        if not firstname or not lastname or not dob or not school or not qualification or not years or not image:
+            messages.error(request, 'all field are required')
+            return render(request, 'apply_job.html', {'job': job})
+        if len(firstname) < 2 or len(lastname) < 2 or len(school) < 2 or len(qualification) < 2:
+            messages.error(request, 'character too short')
+            return render(request, 'apply_job.html', {'job': job})
+        if len(firstname) > 250 or len(lastname) > 250 or len(school) > 250 or len(qualification) > 250:
+            messages.error(request, 'character too long')
+            return render(request, 'apply_job.html', {'job': job})
+
+        ApplyModel.objects.create(
+            firstname=firstname,
+            lastname=lastname,
+            dob=dob,
+            school=school,
+            qualification=qualification,
+            years=years,
+            image=image,
+            job=job,
+        )
+        messages.success(request, 'job application sent successfully')
+        return redirect(resolve_url('jobs'))
+    
+
+
+    
+def error_404(request,exception):
+     return render(request,'error_404.html')
+
+def error_500(request):
+     return render(request,'error_500.html')
     
 
 
