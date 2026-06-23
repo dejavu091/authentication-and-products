@@ -310,22 +310,38 @@ background-color: bisque;height: 150px;padding: 2%;}
     display: none;
 }
 
+/* Responsive: Tablet */
+@media screen and (max-width: 1024px) {
+  header { padding: 10px 16px; }
+  .hero ul{ width: auto; gap: 10px; }
+  .hero2 ul{ width: 40dvw; }
+  .sub2 input{ width: 80vw; max-width: 640px; }
+  .find{ width: 60%; }
+  .hero3, .hero4{ padding: 20px; max-width: 1000px; }
+  .ill img{ width: 220px; right: 20px; top: 20px; }
+  .find1{ position: relative; top: 0; margin-left: 0; }
+  .find1 input{ width: 240px; }
+  .find-job button{ position: static; margin-top: 10px; left: auto; top: auto; }
+  .live{ position: relative; top: auto; margin-left: 0; display: flex; flex-wrap: wrap; }
+}
+
+/* Responsive: Mobile */
 @media screen and (max-width:600px) {
-  .hero ul{
-    display: none;
+  header { padding: 10px 12px; }
+  .hero { padding: 8px; }
+  .hero ul{ display: none; }
+  .drop{ display: block; }
+  .hero2 ul{ width: 100%; margin-left: 0; display: flex; justify-content: space-between; padding: 10px; }
+  .sub2 input{ width: 90vw; margin-left: 0; padding-left: 40px; }
+  .search-btn button, .find1, .find-job button{ display: none; }
+  .hero3, .hero4{ width: calc(100% - 24px); padding: 16px; margin-left: auto; margin-right: auto; }
+  .find{ width: 100%; }
+  .ill img{ display: none; }
+  .find1{ position: static; margin: 12px 0; top: auto; }
+  .find1 input{ width: 100%; max-width: none; }
+  .find-job button{ display: block; position: relative; left: auto; top: auto; margin-top: 8px; }
+  .live{ position: static; gap: 12px; margin-left: 0; margin-top: 12px; }
+  .hero4 img{ width: 100%; margin-left: 0; }
+  .intro, .contact{ width: 94vw; }
 }
-  .drop{
-    display: block;
-  } 
 
-
-.hero2 ul{
-width: 200px;margin-left: -250px;
-}
-
-.search-btn button,.find1,.find-job button{
-    display: none;
-}
-
-   }
- 
