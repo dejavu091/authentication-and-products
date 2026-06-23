@@ -1,14 +1,44 @@
-from django.shortcuts import render,redirect,resolve_url
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
 from user.models import contactMessage
 from django.contrib.auth.decorators import login_required
+from user.models import UserProfile
+from user.forms import UserProfileForm
 
 
 @login_required
 def homepage(request):
     print(request.method)
     return render(request, 'home.html')
+
+
+@login_required
+def profile(request):
+    profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    return render(request, 'user_profile.html', {'profile': profile})
+
+
+@login_required
+def edit_profile(request):
+    profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated.')
+            return redirect('profile')
+        messages.error(request, 'Please correct the errors below.')
+    else:
+        form = UserProfileForm(instance=profile)
+    return render(request, 'edit_profile.html', {'form': form})
+
+
+@login_required
+def profiles_list(request):
+    """List view showing all user profiles (name, location, picture)."""
+    profiles = UserProfile.objects.select_related('user').all()
+    return render(request, 'profiles_list.html', {'profiles': profiles})
 
 
 def aboutpage(request):
@@ -51,5 +81,6 @@ class Contact(View):
           messages.success(request,'welcome')
           return redirect(homepage)
                
+
 
 # Create your views here.

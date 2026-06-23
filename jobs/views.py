@@ -33,7 +33,7 @@ class postJOb(LoginRequiredMixin,View):
         try:
             salary = int(salary)
         except:
-            messages.error(request,'salary must be intergers')
+            messages.error(request,'salary must be integers')
             return redirect(resolve_url('post-jobs'))
         if salary < 1:
                 messages.error(request,"salary too low")

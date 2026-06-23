@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %}Profiles{% endblock%} 
+{% block main %}
+<div class="content-section">
+  <h1>All Members</h1>
+  <div class="profiles-grid">
+    {% for p in profiles %}
+    <div class="profile-card">
+      {% if p.profile_picture %}
+      <img
+        src="{{ p.profile_picture.url }}"
+        alt="{{ p.user.username }}"
+        class="profile-thumb"
+      />
+      {% else %}
+      <img
+        src="{% static 'default.jpg' %}"
+        alt="default"
+        class="profile-thumb"
+      />
+      {% endif %}
+      <div class="profile-info">
+        <strong>{{ p.user.username }}</strong>
+        <div class="profile-location">{{ p.location|default:'—' }}</div>
+      </div>
+    </div>
+    {% empty %}
+    <p>No profiles found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

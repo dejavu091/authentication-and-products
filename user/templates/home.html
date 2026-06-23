@@ -5,69 +5,25 @@
 
 {% block main %}
 
- <div class="sub-hero">
-        <div class="sub1">
-            <img src="{% static 'assets/briefcase-duotone 1.png' %}" alt="breifcase">
-            <p>DEJ-JOBS</p>
+ <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Community care, advocacy, and belonging</p>
+          <h1>Seattle LGBTQ</h1>
+          <p>
+            A welcoming organization connecting LGBTQ+ people and allies across Seattle through
+            support groups, resource navigation, volunteer action, and inclusive local events.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="{%url 'login'%}">Log in</a>
+            <a class="button secondary" href="{%url 'contact'%}">Get in touch</a>
+          </div>
         </div>
-        <div class="sub2">
-            <img src="{% static 'assets/fi_search.png' %}"  alt="searchbar">
-            <input type="text" placeholder="Job title, keyword, company">
+        <div class="hero-media" aria-label="Seattle LGBTQ community illustration">
+          <img src="{% static 'assets/community-rainbow.svg' %}" alt="Colorful Seattle LGBTQ community illustration" />
         </div>
-        <div class="search-btn">
-            <button>search</button>
-        </div>
-    </div>
-    <main>
-        <div class="hero3">
-            <div class="find">
-                <h2>
-                    Find a job that suits <br> your interest & skills.
-                </h2>
-                <p>
-                    we help you find jobs that you have passion for
-                </p>
-            </div>
-            <div class="ill">
-                <img src="{% static 'assets/Illustration.png' %}" alt="illustration">
-            </div>
-            <div class="find-bar">
-                <div class="find1">
-                    <img src="{% static  'assets/fi_map-pin.png' %}" alt="locator">
-                  <input type="text" name="" id="" placeholder="your location">
-                </div>
-             <div class="find-job">
-                <button> find job</button>
-             </div>
-               
-
-            </div>
-            <div class="live">
-                <div class="live1">
-                    <img src="{% static 'assets/briefcase-duotone 1.png' %}" alt="case">
-                    <p>1500 jobs</p>
-
-                </div>
-                <div class="live2">
-                    <img src="{% static 'assets/Icon.png' %}" alt="company">
-                    <p>2600 companies</p>
-                </div>
-                <div class="live3">
-                    <img src="{% static 'assets/Icon (1).png' %}" alt="candidates">
-                    <p>17000 candidates</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero4">
-
-            <h2 id="dej">
-                how DEJ-JOBS works
-            </h2>
-            <img src="{% static 'assets/Process.png' %}" alt="process">
-        </div>
+      </section>
     </main>
-
 
     
 {% endblock main %}

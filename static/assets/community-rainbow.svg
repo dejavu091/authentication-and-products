@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Seattle LGBTQ community illustration</title>
+  <desc id="desc">A colorful abstract skyline, rainbow paths, and people gathered together.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7ff"/>
+      <stop offset="0.48" stop-color="#f8f1ff"/>
+      <stop offset="1" stop-color="#fff6e7"/>
+    </linearGradient>
+    <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e84d4d"/>
+      <stop offset="0.18" stop-color="#f29f3d"/>
+      <stop offset="0.36" stop-color="#f4d849"/>
+      <stop offset="0.54" stop-color="#35ad66"/>
+      <stop offset="0.72" stop-color="#3076d7"/>
+      <stop offset="0.9" stop-color="#7a52c6"/>
+      <stop offset="1" stop-color="#bd4da0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#123047" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="720" rx="38" fill="url(#sky)"/>
+  <circle cx="1005" cy="124" r="74" fill="#ffd777" opacity="0.88"/>
+  <path d="M0 520 C180 470 292 572 460 518 C665 452 772 498 928 450 C1048 413 1127 433 1200 392 L1200 720 L0 720 Z" fill="#dff0ec"/>
+  <path d="M0 582 C174 525 314 620 494 558 C682 493 812 548 958 494 C1070 453 1136 476 1200 438 L1200 720 L0 720 Z" fill="#cbe4dc"/>
+  <g filter="url(#shadow)">
+    <path d="M196 384 L196 272 L238 272 L238 226 L270 226 L270 384 Z" fill="#24475e"/>
+    <path d="M286 384 L286 202 L326 202 L326 142 L350 142 L350 384 Z" fill="#315e77"/>
+    <path d="M366 384 L366 250 L422 250 L422 170 L455 170 L455 384 Z" fill="#24475e"/>
+    <path d="M482 384 L482 234 L520 234 L520 198 L560 198 L560 384 Z" fill="#426f85"/>
+    <path d="M588 384 L588 162 L624 162 L624 112 L654 112 L654 384 Z" fill="#315e77"/>
+    <path d="M684 384 L684 232 L730 232 L730 284 L766 284 L766 384 Z" fill="#24475e"/>
+    <path d="M796 384 L796 198 L850 198 L850 258 L900 258 L900 384 Z" fill="#426f85"/>
+    <path d="M926 384 L926 262 L972 262 L972 224 L1018 224 L1018 384 Z" fill="#315e77"/>
+    <rect x="162" y="382" width="900" height="30" rx="15" fill="#1d3c50"/>
+  </g>
+  <path d="M-14 514 C143 442 290 462 407 518 C553 589 641 618 775 558 C930 489 1048 504 1224 572" fill="none" stroke="url(#rainbow)" stroke-width="58" stroke-linecap="round" opacity="0.95"/>
+  <path d="M-15 584 C147 510 293 535 414 590 C562 657 657 666 792 612 C935 554 1058 562 1218 628" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" opacity="0.72"/>
+  <g transform="translate(278 474)">
+    <circle cx="42" cy="32" r="26" fill="#7a52c6"/>
+    <path d="M0 126 C7 73 77 73 84 126 Z" fill="#7a52c6"/>
+    <circle cx="114" cy="20" r="24" fill="#e84d4d"/>
+    <path d="M74 120 C83 70 145 70 154 120 Z" fill="#e84d4d"/>
+    <circle cx="184" cy="34" r="27" fill="#35ad66"/>
+    <path d="M138 130 C146 75 224 75 232 130 Z" fill="#35ad66"/>
+  </g>
+  <g transform="translate(720 456)">
+    <circle cx="42" cy="32" r="26" fill="#3076d7"/>
+    <path d="M0 126 C7 73 77 73 84 126 Z" fill="#3076d7"/>
+    <circle cx="116" cy="22" r="24" fill="#f29f3d"/>
+    <path d="M76 120 C85 70 147 70 156 120 Z" fill="#f29f3d"/>
+    <circle cx="188" cy="35" r="27" fill="#bd4da0"/>
+    <path d="M142 130 C150 75 228 75 236 130 Z" fill="#bd4da0"/>
+  </g>
+</svg>

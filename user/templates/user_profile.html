@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% load static %} {% block title %}User
+Profile{%endblock %} {% block main %}
+<div class="content-section">
+  <div class="media">
+    {% if profile.profile_picture %}
+    <img
+      class="rounded-circle account-img"
+      src="{{ profile.profile_picture.url }}"
+      alt="{{ request.user.username }} profile picture"
+    />
+    {% else %}
+    <img
+      class="rounded-circle account-img"
+      src="{% static 'default.jpg' %}"
+      alt="default profile picture"
+    />
+    {% endif %}
+    <div class="media-body">
+      <h2>{{ request.user.username }}</h2>
+      <p class="profile-email">{{ request.user.email }}</p>
+      <p class="profile-field">
+        <strong>Bio:</strong> {{ profile.bio|default:'No profile bio yet.' }}
+      </p>
+      <p class="profile-field">
+        <strong>Location:</strong> {{ profile.location|default:'Not set' }}
+      </p>
+      <p class="profile-field">
+        <strong>Date of birth:</strong>
+        {{ profile.date_of_birth|date:'F j, Y'|default:'Not set' }}
+      </p>
+      <p class="profile-field">
+        <strong>Gender:</strong> {{ profile.get_gender_display }}
+        <br />
+        <!-- <small>raw value: '{{ profile.gender }}'</small> -->
+      </p>
+      <div class="profile-actions">
+        <a class="btn-primary" href="{% url 'edit_profile' %}">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
