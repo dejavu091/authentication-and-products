@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'user',
     'authz',
     'jobs',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,9 @@ MEDIA_URL='media/'
 STATICFILES_DIRS= (os.path.join(BASE_DIR,'static'),)
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
