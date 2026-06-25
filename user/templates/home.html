@@ -1,31 +1,32 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %} Home page {% endblock title %}
- {% block style %} {% endblock style%}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Home page {%endblock title %} 
+{% block style %} {% endblock style%}
+ {% block main %}
+ 
+ <p class="greeting">Hello <span class="userN"> {{ request.user.username }}</span></p>
+<main id="home">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Community care, advocacy, and belonging</p>
+      <h1>Seattle LGBTQ</h1>
+      <p>
+        A welcoming organization connecting LGBTQ+ people and allies across
+        Seattle through support groups, resource navigation, volunteer action,
+        and inclusive local events.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="{%url 'login'%}">Log in</a>
+        <a class="button secondary" href="{%url 'contact'%}">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-media" aria-label="Seattle LGBTQ community illustration">
+      <img
+        src="{% static 'assets/community-rainbow.svg' %}"
+        alt="Colorful Seattle LGBTQ community illustration"
+      />
+    </div>
+  </section>
+</main>
 
-{% block main %}
-
- <main id="home">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Community care, advocacy, and belonging</p>
-          <h1>Seattle LGBTQ</h1>
-          <p>
-            A welcoming organization connecting LGBTQ+ people and allies across Seattle through
-            support groups, resource navigation, volunteer action, and inclusive local events.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="{%url 'login'%}">Log in</a>
-            <a class="button secondary" href="{%url 'contact'%}">Get in touch</a>
-          </div>
-        </div>
-        <div class="hero-media" aria-label="Seattle LGBTQ community illustration">
-          <img src="{% static 'assets/community-rainbow.svg' %}" alt="Colorful Seattle LGBTQ community illustration" />
-        </div>
-      </section>
-    </main>
-
-    
 {% endblock main %}
-
-

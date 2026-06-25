@@ -209,7 +209,15 @@ transition: .3s ease-in-out
 #dej{
     text-align: center;
 }
-
+.greeting { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0b1220;
+}
+.userN{
+    text-transform: uppercase;
+}
 .hero4 img{
     width: 80%;
     margin-left: 80px;
@@ -284,9 +292,8 @@ footer{
 .hide{
     display: none;
 }
-#mess {
-    background-color: rgba(7, 0, 0, 0.758);width: 200px;
-    height: 20px;
+#mess {width: 200px;
+    height: 50px;
     border-radius: 10px;
     text-align: center;
     color: rgba(255, 0, 0, 0.692);

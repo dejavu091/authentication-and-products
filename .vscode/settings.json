@@ -32,7 +32,7 @@
     },
     "editor.inlineSuggest.enabled": true,
     "editor.suggest.showWords": true,
-    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.defaultProfile.windows": "PowerShell"
