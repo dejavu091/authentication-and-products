@@ -15,6 +15,17 @@ import os
 from decouple import config
 
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Configure Cloudinary with credentials from environment variables
+cloudinary.config(
+    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+    api_key=config('CLOUDINARY_API_KEY'),
+    api_secret=config('CLOUDINARY_API_SECRET'),
+    secure=True
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,13 +143,18 @@ LOGIN_URL ='/authz/login'
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL='media/'
-STATICFILES_DIRS= (os.path.join(BASE_DIR,'static'),)
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET'),
+MEDIA_URL = 'https://res.cloudinary.com/{}/image/upload/'.format(config('CLOUDINARY_CLOUD_NAME'))
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+        "OPTIONS": {
+            "CLOUDINARY_URL": config('CLOUDINARY_URL', default=''),
+        }
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
+    },
 }
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
