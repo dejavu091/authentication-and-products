@@ -143,16 +143,21 @@ LOGIN_URL ='/authz/login'
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = 'https://res.cloudinary.com/{}/image/upload/'.format(config('CLOUDINARY_CLOUD_NAME'))
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Note: MEDIA_ROOT is not needed when using Cloudinary storage
+
+# Cloudinary Configuration
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
+}
 
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-        "OPTIONS": {
-            "CLOUDINARY_URL": config('CLOUDINARY_URL', default=''),
-        }
     },
     "staticfiles": {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"

@@ -25,7 +25,6 @@ urlpatterns = [
     path('authz/',include('authz.urls')),
     path('jobs/',include('jobs.urls'),)
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 
 
